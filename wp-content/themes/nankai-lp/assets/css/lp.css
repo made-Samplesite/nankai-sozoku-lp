@@ -514,6 +514,7 @@ ol,ul{list-style:none}
 .hero__copy .ln>span{position:relative}
 .hero__copy .pt{position:absolute;left:100%;bottom:0}
 @media (min-width:1025px){.hero__copy .pt{position:static}}
+@media (max-width:1024px){.hero__copy .pt--pc{display:none}}
 
 /* 動きを減らす設定の方には、アニメーションを止めて最初から表示 */
 @media (prefers-reduced-motion:reduce){
