@@ -94,3 +94,18 @@
 		else if (/\/contact$/.test(path)) { location.href = base + '/contact-thanks/'; }
 	});
 })();
+
+/* かんたん相談：連絡方法に合わせて電話番号・メールの「必須／任意」を切り替える */
+(function () {
+	function sync() {
+		var c = document.querySelector('input[name="contact-way"]:checked');
+		var way = c ? c.value : '';
+		document.querySelectorAll('[data-need]').forEach(function (s) {
+			var on = s.getAttribute('data-need') === way;
+			s.textContent = on ? '必須' : '任意';
+			s.classList.toggle('is-off', !on);
+		});
+	}
+	document.addEventListener('change', function (e) { if (e.target && e.target.name === 'contact-way') sync(); });
+	sync();
+})();
